@@ -1,26 +1,78 @@
+@font-face {
+    font-family: "Lato";
+    src: url(../Font/Lato/Lato-Black.ttf),
+    url(../Font/Lato/Lato-BlackItalic.ttf),
+    url(../Font/Lato/Lato-Bold.ttf),
+    url(../Font/Lato/Lato-BoldItalic.ttf),
+    url(../Font/Lato/Lato-Italic.ttf),
+    url(../Font/Lato/Lato-Light.ttf),
+    url(../Font/Lato/Lato-LightItalic.ttf),
+    url(../Font/Lato/Lato-Regular.ttf),
+    url(../Font/Lato/Lato-Thin.ttf),
+    url(../Font/Lato/Lato-ThinItalic.ttf)
+    ;
+}
 :root{
     --color-1: #780000;
     --color-2: #c1121f;
-    --color-3: #fdf0d5;
+    /* --color-3: #fdf0d5; */
+    --color-3: #e8dfd1;
     --color-4: #003049;
     --color-5: #669bbc;
+}
+::-webkit-scrollbar{
+    width: .6rem;
+    /* border-radius: .5rem; */
+    background-color: var(--color-5);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--color-4);
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 html{
     scroll-behavior: smooth;
 }
+
 body{
+    font-family: "Lato";
     margin: 0;
     background-color: var(--color-3);
 }
 a:active{
     color: var(--color-5);
 }
+
+.header{
+    position: fixed;
+    top: 0;
+    height: 8vh;
+    width: 100%;
+    background-color: var(--color-4);
+    display: flex;
+    justify-content: center;
+}
+nav {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav a{
+    color: #669bbc;
+    text-decoration: none;
+}
 .nav__menu{
     position: fixed;
     bottom: 5%;
     left: 25%;
-    width: 500px;
-    background-color: hsla(var(--color-4), 32%, 16%, .8);
+    width: 50%;
+    min-width: 250px;
+    background-color: hsla(204, 36%, 16%, .8);
     backdrop-filter: blur(10px);
     transition: .5s;
     border-radius: 50px;
@@ -44,14 +96,122 @@ ul{
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: var(--color-5);
-    border-radius: 25px;
 }
 .nav__link{
     font-size: 1.25rem;
     align-content: center;
     color: var(--color-3);
 }
+.active-link{
+    background-color: var(--color-5);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow:
+    inset 0px 1px 3px rgba(255, 255, 255, 0.6),
+    inset 0px -2px 3px rgba(0, 0, 0, 0.6);
+}
 .nav__menu .nav__list .nav__item .nav__link .bx{
     font-size: 1.25rem;
+}
+.bx-moon::before{
+    content: "\eb94";
+}
+/*** Main ***/
+.home_sec{
+    padding-top: 8vh;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home_content{
+    padding-top: 2rem;
+    display: grid;
+    row-gap: 3rem;
+}
+.home_sec .home_content .home_data{
+
+}
+.home_sec .home_content .home_data p, 
+.home_sec .home_content .home_data h1,
+.home_sec .home_content .home_data h3{
+    text-align: center;
+}
+.home_data p{
+    margin: 0;
+    margin-bottom: 0.25rem;
+}
+.home_data h1{
+    margin: 0;
+}
+.home_data h3{
+    margin-bottom: 2.5rem;
+}
+#anim_1 {
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid black;
+    width: 100%;
+    animation: typing 4s steps(30) 1s, blink 0.75s step-end;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 34%;
+    }
+}
+
+/* @keyframes blink {
+    0%, 50% {
+        border-color: transparent;
+    }
+    50.1%, 100% {
+        border-color: black;
+    }
+} */
+.home_button{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.home_button a button{
+    font-weight: 600;
+    border-radius: .8rem;
+    border: 2px solid var(--color-5);
+    color: var(--color-5);
+    padding: 1rem;
+    transition: .3s;
+}
+.home_button a .CV{
+   background-color: transparent; 
+}
+.home_button a .CV:hover{
+    background-color: var(--color-4);
+
+}
+.home_button a .aPropos{
+    background-color: var(--color-4);
+}
+.home_pics{
+    justify-self: center;
+    width: 190px;
+    height: 293px;
+    /* background: linear-gradient(189deg, hsla(var(--first-hue), var(--sat), var(--lig), 1), hsla(var(--first-hue), var(--sat), var(--lig), .2)); */
+    border-radius: 10rem 10rem 1rem 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+.home_pics img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
 }

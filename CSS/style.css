@@ -13,13 +13,66 @@
     ;
 }
 :root{
-    --color-1: #780000;
-    --color-2: #c1121f;
-    /* --color-3: #fdf0d5; */
-    --color-3: #e8dfd1;
-    --color-4: #003049;
-    --color-5: #669bbc;
+
+    /* colors light-mode */
+    /* --color-light-1: #780000; */
+    --color-light-1: #6B778D;
+    /* --color-light-2: #c1121f; */
+    --color-light-2: #D5B895;
+    --color-light-3: #e8dfd1;
+    --color-light-4: #003049;
+    --color-light-5: #669bbc;
+
+    /* color dark-mode */
+    --color-dark-1: #324A5F;
+    --color-dark-2: #1B2A41;
+    --color-dark-3: #0C1821;
+    --color-dark-4: #000000;
+    --color-dark-5: #CCC9DC;
+
+    /* Thème Clair - Couleurs définies */
+    --color-1: var(--color-light-1);
+    --color-2: var(--color-light-2);
+    --color-3: var(--color-light-3);
+    --color-4: var(--color-light-4);
+    --color-5: var(--color-light-5);
+
+    transition: 
+    --color-1 0.3s ease,
+    --color-2 0.3s ease,
+    --color-3 0.3s ease,
+    --color-4 0.3s ease,
+    --color-5 0.3s ease;
 }
+
+.dark-theme {
+    /* Thème Sombre - Couleurs définies */
+    --color-1: var(--color-dark-1);
+    --color-2: var(--color-dark-2);
+    --color-3: var(--color-dark-3);
+    --color-4: var(--color-dark-4);
+    --color-5: var(--color-dark-5);
+}
+
+body {
+    background-color: var(--color-3);
+    color: var(--color-5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Configuration du bouton de thème */
+.change-theme {
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: transform 1.3s ease, color 0.3s ease;
+}
+/* 
+.change-theme:hover {
+    transform: rotate(180deg);
+} */
+
+/* ************************************************ */
 ::-webkit-scrollbar{
     width: .6rem;
     /* border-radius: .5rem; */
@@ -28,6 +81,7 @@
 ::-webkit-scrollbar-thumb{
     background-color: var(--color-4);
 }
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -40,7 +94,6 @@ html{
 body{
     font-family: "Lato";
     margin: 0;
-    background-color: var(--color-3);
 }
 a:active{
     color: var(--color-5);
@@ -63,7 +116,7 @@ nav {
     align-items: center;
 }
 header nav a{
-    color: #669bbc;
+    color: var(--color-5);
     text-decoration: none;
 }
 .nav__menu{
@@ -102,7 +155,8 @@ ul{
     align-content: center;
     color: var(--color-3);
 }
-.active-link{
+a.active-link{
+    color: var(--color-4);
     background-color: var(--color-5);
     width: 50px;
     height: 50px;
@@ -110,6 +164,10 @@ ul{
     box-shadow:
     inset 0px 1px 3px rgba(255, 255, 255, 0.6),
     inset 0px -2px 3px rgba(0, 0, 0, 0.6);
+}
+a.active-link:active{
+    color: var(--color-5);
+    background-color: var(--color-4);
 }
 .nav__menu .nav__list .nav__item .nav__link .bx{
     font-size: 1.25rem;
@@ -131,7 +189,7 @@ ul{
     row-gap: 3rem;
 }
 .home_sec .home_content .home_data{
-
+    text-align: center;
 }
 .home_sec .home_content .home_data p, 
 .home_sec .home_content .home_data h1,
@@ -148,33 +206,62 @@ ul{
 .home_data h3{
     margin-bottom: 2.5rem;
 }
-#anim_1 {
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
+#anim_1, #anim_2, #anim_3 {
+    display: inline-block;
     overflow: hidden;
+    white-space: nowrap;
     border-right: 4px solid black;
-    width: 100%;
-    animation: typing 4s steps(30) 1s, blink 0.75s step-end;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+#anim_1 {
+    animation: typing 2s steps(20) forwards, 
+               blink 0.8s step-end infinite;
+    /* width: 0; */
+}
+
+#anim_2 {
+    animation: typing 2s steps(25) forwards 2.2s, 
+               blink 0.8s step-end infinite 2.2s;
+    width: 0;
+    /* opacity: 0; */
+}
+
+#anim_3 {
+    animation: typing 2s steps(22) forwards 4.4s, 
+               blink 0.8s step-end infinite 4.4s;
+    width: 0;
+    /* opacity: 0; */
 }
 
 @keyframes typing {
     0% {
         width: 0;
+        /* opacity: 0; */
+        border-right-color: black;
+    }
+    99.5% {
+        width: 100%;
+        /* opacity: 1; */
+        border-right-color: black;
     }
     100% {
-        width: 34%;
+        width: 100%;
+        opacity: 1;
+        border-right-color: transparent;
     }
 }
 
-/* @keyframes blink {
-    0%, 50% {
+@keyframes blink {
+    0%, 100% {
         border-color: transparent;
     }
-    50.1%, 100% {
+    50% {
         border-color: black;
     }
-} */
+}
+
+
 .home_button{
     display: flex;
     justify-content: center;
@@ -192,11 +279,10 @@ ul{
    background-color: transparent; 
 }
 .home_button a .CV:hover{
-    background-color: var(--color-4);
-
+    background-color: var(--color-2);
 }
 .home_button a .aPropos{
-    background-color: var(--color-4);
+    background-color: var(--color-2);
 }
 .home_pics{
     justify-self: center;

@@ -16,26 +16,26 @@
 
     /* colors light-mode */
     /* --color-light-1: #780000; */
-    --color-light-1: #6B778D;
+    --color-light-1: #D5B895;
     /* --color-light-2: #c1121f; */
-    --color-light-2: #D5B895;
-    --color-light-3: #e8dfd1;
-    --color-light-4: #003049;
-    --color-light-5: #669bbc;
+    --color-light-2: #6B778D;
+    --color-light-body: #e8dfd1;
+    --color-light-header: #003049;
+    --color-light-text: #669bbc;
 
     /* color dark-mode */
     --color-dark-1: #324A5F;
     --color-dark-2: #1B2A41;
-    --color-dark-3: #0C1821;
-    --color-dark-4: #000000;
-    --color-dark-5: #CCC9DC;
+    --color-dark-body: #0C1821;
+    --color-dark-header: #000000;
+    --color-dark-text: #CCC9DC;
 
     /* Thème Clair - Couleurs définies */
     --color-1: var(--color-light-1);
     --color-2: var(--color-light-2);
-    --color-3: var(--color-light-3);
-    --color-4: var(--color-light-4);
-    --color-5: var(--color-light-5);
+    --color-3: var(--color-light-body);
+    --color-4: var(--color-light-header);
+    --color-5: var(--color-light-text);
 
     transition: 
     --color-1 0.3s ease,
@@ -49,9 +49,9 @@
     /* Thème Sombre - Couleurs définies */
     --color-1: var(--color-dark-1);
     --color-2: var(--color-dark-2);
-    --color-3: var(--color-dark-3);
-    --color-4: var(--color-dark-4);
-    --color-5: var(--color-dark-5);
+    --color-3: var(--color-dark-body);
+    --color-4: var(--color-dark-header);
+    --color-5: var(--color-dark-text);
 }
 
 body {
@@ -123,9 +123,11 @@ header nav a{
     position: fixed;
     bottom: 5%;
     left: 25%;
+    right: 25%;
     width: 50%;
     min-width: 250px;
-    background-color: hsla(204, 36%, 16%, .8);
+    /* background-color: hsla(204, 36%, 16%, .8); */
+    background-color: var(--color-3), .8;
     backdrop-filter: blur(10px);
     transition: .5s;
     border-radius: 50px;
@@ -153,7 +155,7 @@ ul{
 .nav__link{
     font-size: 1.25rem;
     align-content: center;
-    color: var(--color-3);
+    color: var(--color-5);
 }
 a.active-link{
     color: var(--color-4);
@@ -279,10 +281,10 @@ a.active-link:active{
    background-color: transparent; 
 }
 .home_button a .CV:hover{
-    background-color: var(--color-2);
+    background-color: var(--color-1);
 }
 .home_button a .aPropos{
-    background-color: var(--color-2);
+    background-color: var(--color-1);
 }
 .home_pics{
     justify-self: center;
@@ -300,4 +302,14 @@ a.active-link:active{
     height: 100%;
     object-fit: cover;
     vertical-align: middle;
+}
+@media screen and (max-width:600px) {
+    .nav__menu{
+        position: fixed;
+        bottom: 5%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 250px;
+    }
 }

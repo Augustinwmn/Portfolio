@@ -126,8 +126,8 @@ header nav a{
     right: 25%;
     width: 50%;
     min-width: 250px;
-    /* background-color: hsla(204, 36%, 16%, .8); */
-    background-color: var(--color-3), .8;
+    /* background-color: hsla(204, 36%, 16%, .4); */
+    background-color: var(--color-3), .4;
     backdrop-filter: blur(10px);
     transition: .5s;
     border-radius: 50px;
@@ -180,7 +180,7 @@ a.active-link:active{
 /*** Main ***/
 .home_sec{
     padding-top: 8vh;
-    height: 92vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -201,12 +201,26 @@ a.active-link:active{
 .home_data p{
     margin: 0;
     margin-bottom: 0.25rem;
+    font-size: 1.25vw;
 }
 .home_data h1{
+    font-size: 2vw;
     margin: 0;
 }
-.home_data h3{
+.home_data h2{
+    font-size: 1.75vw;
     margin-bottom: 2.5rem;
+}
+@media screen and (max-width: 1000px) {
+    .home_data p{
+        font-size: 2.5vw;
+    }
+    .home_data h1{
+        font-size: 4vw;
+    }
+    .home_data h2{
+        font-size: 3.5vw;
+    }
 }
 #anim_1, #anim_2, #anim_3 {
     display: inline-block;
@@ -302,6 +316,13 @@ a.active-link:active{
     height: 100%;
     object-fit: cover;
     vertical-align: middle;
+}
+.inter_sec{
+    backdrop-filter: blur(10px);
+}
+.about_sec{
+    min-height: 100vh;
+    background-color: var(--color-1);
 }
 @media screen and (max-width:600px) {
     .nav__menu{

@@ -55,7 +55,6 @@
 }
 
 body {
-    background-color: var(--color-3);
     color: var(--color-5);
     transition: all 0.3s ease-in-out;
 }
@@ -67,8 +66,8 @@ body {
     font-size: 1.5rem;
     transition: transform 1.3s ease, color 0.3s ease;
 }
-/* 
-.change-theme:hover {
+
+/* .change-theme:hover {
     transform: rotate(180deg);
 } */
 
@@ -107,6 +106,7 @@ a:active{
     background-color: var(--color-4);
     display: flex;
     justify-content: center;
+    z-index: 999;
 }
 nav {
     height: 100%;
@@ -181,6 +181,7 @@ a.active-link:active{
 .home_sec{
     padding-top: 8vh;
     height: 100vh;
+    background-color: var(--color-3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,20 +233,20 @@ a.active-link:active{
 }
 #anim_1 {
     animation: typing 2s steps(20) forwards, 
-               blink 0.8s step-end infinite;
+               blink 0.8s step-end forwards;
     /* width: 0; */
 }
 
 #anim_2 {
-    animation: typing 2s steps(25) forwards 2.2s, 
-               blink 0.8s step-end infinite 2.2s;
+    animation: typing 2s steps(25) forwards 1.1s, 
+               blink 0.8s step-end forwards 1.8s;
     width: 0;
     /* opacity: 0; */
 }
 
 #anim_3 {
-    animation: typing 2s steps(22) forwards 4.4s, 
-               blink 0.8s step-end infinite 4.4s;
+    animation: typing 2s steps(22) forwards 3s, 
+               blink 0.8s step-end forwards 3.5s;
     width: 0;
     /* opacity: 0; */
 }
@@ -254,7 +255,7 @@ a.active-link:active{
     0% {
         width: 0;
         /* opacity: 0; */
-        border-right-color: black;
+        border-right-color: transparent;
     }
     99.5% {
         width: 100%;
@@ -263,11 +264,10 @@ a.active-link:active{
     }
     100% {
         width: 100%;
-        opacity: 1;
+        /* opacity: 1; */
         border-right-color: transparent;
     }
 }
-
 @keyframes blink {
     0%, 100% {
         border-color: transparent;
@@ -276,7 +276,6 @@ a.active-link:active{
         border-color: black;
     }
 }
-
 
 .home_button{
     display: flex;
@@ -322,7 +321,15 @@ a.active-link:active{
 }
 .about_sec{
     min-height: 100vh;
+    width: 100%;
+    padding-top: 8vh;
     background-color: var(--color-1);
+}
+.section__subtitle{
+    display: block;
+}
+.section__title, .section__subtitle{
+    text-align: center;
 }
 @media screen and (max-width:600px) {
     .nav__menu{

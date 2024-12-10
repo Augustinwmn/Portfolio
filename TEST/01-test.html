@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Conteneur du texte */
+.text-container {
+    display: inline-block;
+    overflow: hidden; /* Cache tout texte qui dépasse */
+    position: relative;
+}
+
+/* Texte à animer */
+#anim_1, #anim_2, #anim_3 {
+    display: inline-block;
+    font-size: 40px; /* Taille du texte */
+    font-weight: 700;
+    color: #000;
+    overflow: hidden;
+    text-transform: uppercase;
+    position: relative;
+    white-space: nowrap; /* Empêche le texte de se briser sur plusieurs lignes */
+    border-right: 2px solid black; /* Simule le curseur de saisie */
+}
+/* Application des animations spécifiques à chaque élément */
+#anim_1 {
+    animation: typing 3s steps(20) forwards , blink 0.8s step-end forwards 3s, erasing 3s steps(20) forwards 6s;
+}
+@keyframes typing {
+    0% { 
+        width: 0; 
+        border-right-color: transparent; 
+    }
+    99.5% { 
+        width: 100%; 
+        /* opacity: 1;  */
+        border-right-color: black; 
+    }
+    100% { 
+        width: 100%; 
+        /* opacity: 1;  */
+        border-right-color: transparent; 
+    }
+}
+
+@keyframes erasing {
+    0% { 
+        width: 100%; 
+        border-right-color: black; 
+    }
+    99.5% { 
+        width: 0; 
+        opacity: 1; 
+        border-right-color: black; 
+    }
+    100% { 
+        width: 0; 
+        opacity: 1; 
+        border-right-color: transparent; 
+    }
+}
+/* Animation du clignotement du curseur */
+@keyframes blink {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <span id="anim_1">Votre texte ici</span>
+    </div>
+    
+    
+    <script>
+
+const textElement = document.getElementById('anim_3');
+const phrases = ["Développeur Web", "Designer", "Intégrateur", "Créatif"];
+let currentIndex = 0;
+let isTyping = true;
+
+function animateText() {
+  if (isTyping) {
+    isTyping = false;
+    
+        // Préparer la phase d'effacement après un délai
+    setTimeout(() => {
+      textElement.style.animation = 'back-typing 2s steps(20) forwards 8s, blink 0.8s step-end forwards 8s';
+    }, 2000);  // 2 secondes de frappe avant d'effacer
+
+    // Phase de frappe
+    textElement.style.animation = 'none';  // Réinitialiser l'animation
+    textElement.offsetHeight;  // Forcer un reflow pour redémarrer l'animation
+    textElement.textContent = phrases[currentIndex];
+    textElement.style.animation = 'typing 2s steps(22) forwards, blink 0.8s step-end forwards 3s';
+
+
+  } else {
+    // Phase d'effacement
+    currentIndex = (currentIndex + 1) % phrases.length;
+    isTyping = true;
+    
+    // Réinitialiser l'animation pour le prochain texte
+    textElement.style.animation = 'none';
+    textElement.offsetHeight;
+    textElement.textContent = '';
+  }
+}
+
+// Démarrer l'animation au chargement de la page
+animateText();
+
+// Répéter l'animation toutes les 10 secondes (temps pour frappe + effacement)
+setInterval(animateText, 10000);
+
+    </script>
+</body>
+</html>

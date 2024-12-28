@@ -130,7 +130,7 @@ header nav a{
 .nav__menu{
     position: fixed;
     transform: translate(-50%, -50%);
-    bottom: 5%;
+    bottom: 2vh;
     left: 50%;
     width: 30%;
     min-width: 400px;
@@ -148,7 +148,7 @@ ul{
 .nav__list{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2.25rem;
+    padding: .5rem 1.25rem;
 
 }
 .nav__item{
@@ -187,14 +187,14 @@ a.active-link{
 /*** Main ***/
 .home_sec{
     padding-top: 8vh;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .home_content{
-    padding-top: 2rem;
-    margin-top: -100px;
+    padding-top: 8vh;
+    min-height: 100%;
     display: grid;
     row-gap: 3rem;
 }
@@ -349,7 +349,7 @@ a.active-link{
 .about_sec{
     min-height: 100vh;
     width: 100%;
-    padding-top: 8vh;
+    margin-top: 8vh;
 }
 .section__subtitle{
     display: block;    
@@ -357,7 +357,7 @@ a.active-link{
 }
 .section__title{
     font-size: 1.75vw;     
-    margin-bottom: 2.5rem;   
+    margin-bottom: 3.5rem;   
 }
 .section__title, .section__subtitle{
     text-align: center;
@@ -380,4 +380,25 @@ section{
         width: 100%;
         min-width: none;
     }
+}
+.about_data{
+    display: flex;
+    justify-content: center;
+}
+.about_info{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.about_box{
+    text-align: center;
+    width: 20%;
+    aspect-ratio: 1/1;
+    border-radius: .75rem;
+    background-color: var(--color-1);
+}
+.about_box i{
+    width: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

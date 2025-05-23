@@ -130,7 +130,7 @@ header nav a{
 .nav__menu{
     position: fixed;
     transform: translate(-50%, -50%);
-    bottom: 2vh;
+    bottom: 5%;
     left: 50%;
     width: 30%;
     min-width: 400px;
@@ -318,13 +318,15 @@ a.active-link{
     transition: .3s;
 }
 .home_button a .CV{
-   background-color: transparent; 
+    background-color: transparent; 
+    cursor: pointer;
 }
 .home_button a .CV:hover{
     background-color: var(--color-1);
 }
 .home_button a .aPropos{
     background-color: var(--color-1);
+    cursor: pointer;
 }
 .home_pics{
     justify-self: center;
@@ -384,6 +386,7 @@ section{
 .about_data{
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 .about_info{
     display: flex;
@@ -392,7 +395,8 @@ section{
 }
 .about_box{
     text-align: center;
-    width: 20%;
+    padding-left: 1rem;
+    padding-right: 1rem;
     aspect-ratio: 1/1;
     border-radius: .75rem;
     background-color: var(--color-1);
@@ -401,4 +405,18 @@ section{
     width: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.about_box h3{
+    font-size: 1.5vw;
+    margin-bottom: 1rem;
+}
+.about_text_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.about_text{
+    width: 80%;
+    /* text-align: center; */
 }
